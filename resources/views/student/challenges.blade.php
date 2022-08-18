@@ -1,29 +1,34 @@
 <x-app-layout>
-
     <form action="{{ route('listUserStu') }} ", method="GET">
         @csrf
         <button>
             Users
         </button>
     </form>
-    
+
+    <form action="{{ route('assignmentStu') }} ", method="GET">
+        @csrf
+        <button>
+            Assignment
+        </button>
+        </form>
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('List Assignments') }}
+            {{ __('List Challenges') }}
         </h2>
     </x-slot>
+
    <table border="1" width="100%">
        <tr>
-           <th>Created at</th>
-           <th>Description</th>
+           <th>Challenge Name</th>
            <th>#</th>
        </tr>
-       @foreach ($files as $file)
+       @foreach ($challenges as $challenge)
            <tr>
-               <td>{{ $file->created_at }}</td>
-               <td>{{ $file->name }}</td>
+               <td>{{ $challenge->challengeName }}</td>
                <td> 
-                   <form action="{{ route('detailStu', ['id' => $file->id]) }} ", method="GET">
+                   <form action="{{ route('detailChallengeStu', ['id' => $challenge->id]) }} ", method="GET">
                        @csrf
                        <button>
                            Detail
@@ -36,14 +41,6 @@
            
        @endforeach
    </table>
-   {{ $files->links() }}
-   
-   <form action="{{ route('challengesStu') }} ", method="GET">
-    @csrf
-    <button>
-        Challenges
-    </button>
-    </form>
- 
-   
+   {{ $challenges->links() }}
+
    </x-app-layout>

@@ -23,13 +23,14 @@ class HomeController extends Controller
         if($role == '1')
         {
             // $users = User::all();
-            $users = User::paginate(10);
-            return view('admin.home', ['users'=> $users]);
+            // $users = User::paginate(10);
+            return view('admin.home');
         }
         else
         {
-            $users = User::paginate(10);
-            return view('student.homeStu', ['users'=> $users]);
+            // $users = User::paginate(10);
+            return view('student.homeStu');
+            // , ['users'=> $users]
         }
 
     }

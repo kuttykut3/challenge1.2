@@ -1,9 +1,13 @@
 <?php
  
 namespace App\Http\Controllers;
- 
+
+use App\Models\Challenge;
 use Illuminate\Http\Request;
 use App\Models\File;
+use App\Models\StuFile;
+use App\Models\User;
+use Illuminate\Broadcasting\Channel;
 use Illuminate\Support\Facades\Storage;
 
 class FileUploadController extends Controller
@@ -28,15 +32,23 @@ class FileUploadController extends Controller
 
     public function detail($id) {
         $detailFile = File::find($id);
- 
-        return view('file-detail',compact('detailFile')); 
+
+        $files = StuFile::paginate(10);
+         
+        return view('file-detail',compact('detailFile'), ['files'=> $files]); 
       }
 
-    public function view($id) {
+    public function viewFile($id) {
         $viewFile = File::find($id);
  
         return view('file-view',compact('viewFile'));
      }
+
+     public function viewFileTurnedIn($id) {
+      $viewFile = StuFile::find($id);
+
+      return view('file-view',compact('viewFile'));
+   }
 
     public function store(Request $request)
     {
@@ -80,5 +92,80 @@ class FileUploadController extends Controller
    
              return redirect('/assignment');
       }
+
+      public function challenges()
+    {
+        $challenges = Challenge::paginate(10);
+          
+        return view('file-challenges', ['challenges'=> $challenges]);
+    }
+
+    public function uploadChallenge()
+    {
+        return view('file-UpLoadChallenge');
+    }
+
+    public function storeChallenge(Request $request)
+    {
+         
+        // $validatedData = 
+        $request->validate([
+         'file' => 'required' , 'mimes:csv,txt,xlx,xls,doc,pdf', 'max:2048',
+        ]);
+
+        $request->file('file')->store('files');
+    
+        $name = $request->file('file')->getClientOriginalName();
+ 
+        $path = $request->file('file')->store('public');
+ 
+        $save = new Challenge();
+ 
+        $save->name = $name;
+        $save->path = $path;
+        $save->hint = $request->get('hint');
+        $save->challengeName = $request->get('challengeName');
+        $save->save();
+ 
+        return redirect('/challenges');
+ 
+    }
+
+    public function destroyChallenge(Challenge $id) {
+      $id->delete();
+
+      return redirect('/challenges');
+   }
+
+   public function detailChallenge($id) {
+    $detailChallenge = Challenge::find($id);
+
+    return view('file-challengeDetail', ['detailChallenge'=> $detailChallenge]);
+   }
+
+    
+   public function showHint($id)
+   {
+        $hintChallenge = Challenge::find($id);
+
+        return view('file-challengeHint', ['hintChallenge'=> $hintChallenge]);
+   
+   }
+
+   public function answer(Request $request, $id)
+    {
+        $challenge = Challenge::find($id);
+
+        if($challenge->name == $request->get('answer').'.txt')
+        {
+            return view('file-correctAnswer', ['challenge'=> $challenge]);
+        }
+        else
+        {
+            return view('file-incorrectAnswer', ['challenge'=> $challenge]);
+        }
+ 
+    }
+
 
 }

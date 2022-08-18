@@ -6,12 +6,19 @@
         </button>
     </form>
 
+    <form action="{{ route('assignment') }} ", method="GET">
+        @csrf
+        <button>
+            Assignment
+        </button>
+        </form>
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('List Assignments') }}
+            {{ __('List Challenges') }}
         </h2>
     </x-slot>
-   <form action="{{ route('fileUpload') }} ", method="GET">
+   <form action="{{ route('ChallengeUpload') }} ", method="GET">
        @csrf
        <button>
            New
@@ -19,23 +26,21 @@
    </form>
    <table border="1" width="100%">
        <tr>
-           <th>Created at</th>
-           <th>Description</th>
+           <th>Challenge Name</th>
            <th>#</th>
        </tr>
-       @foreach ($files as $file)
+       @foreach ($challenges as $challenge)
            <tr>
-               <td>{{ $file->created_at }}</td>
-               <td>{{ $file->name }}</td>
+               <td>{{ $challenge->challengeName }}</td>
                <td> 
-                   <form action="{{ route('detail', ['id' => $file->id]) }} ", method="GET">
+                   <form action="{{ route('detailChallenge', ['id' => $challenge->id]) }} ", method="GET">
                        @csrf
                        <button>
                            Detail
                        </button>
                    </form>
    
-                   <form action="{{ route('destroyFile', ['id' => $file->id]) }} ", method="POST">
+                   <form action="{{ route('destroyChallenge', ['id' => $challenge->id]) }} ", method="POST">
                        @csrf
                        @method('DELETE')
                        <button>
@@ -48,13 +53,8 @@
            
        @endforeach
    </table>
-   {{ $files->links() }}
+   {{ $challenges->links() }}
 
-   <form action="{{ route('challenges') }} ", method="GET">
-    @csrf
-    <button>
-        Challenges
-    </button>
-    </form>
+   
 
    </x-app-layout>

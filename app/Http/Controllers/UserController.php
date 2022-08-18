@@ -9,12 +9,11 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-//     public function index()
-//    {
-//         $users = DB::table('users')->simplePaginate(10);
-//        //  ->simplePaginate(5)
-//         return view('users.index', ['users'=> $users]);
-//    }
+    public function index()
+   {
+        $users = User::paginate(10);
+        return view('admin.listuser', ['users'=> $users]);
+   }
 
    public function add()
    {

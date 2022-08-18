@@ -36,6 +36,8 @@ route::get('/redirect',[HomeController::class,'redirect'])->name('redirect');
 
 // Route::get('/', [UserController::class, 'index']);
 
+Route::get('/users', [UserController::class, 'index'])->name('listuser');
+
 Route::get('/add', [UserController::class, 'add'])->name('add');
 
 Route::post('/add', [UserController::class, 'save'])->name('save');
@@ -54,7 +56,7 @@ Route::delete('/destroyFile/{id}', [FileUploadController::class, 'destroyFile'])
 
 Route::get('/detail/{id}', [FileUploadController::class, 'detail'])->name('detail');
 
-Route::get('/view/{id}', [FileUploadController::class, 'view'])->name('viewFile');
+Route::get('/viewFile/{id}', [FileUploadController::class, 'viewFile'])->name('viewFile');
 
 Route::get('/file-upload', [FileUploadController::class, 'upload'])->name('fileUpload');
 
@@ -64,11 +66,43 @@ Route::get('/change/{id}', [FileUploadController::class, 'changeFile'])->name('c
 
 Route::put('/change/{id}', [FileUploadController::class, 'updateFile'])->name('updateFile');
 
+Route::get('/viewFileTurnedIn/{id}', [FileUploadController::class, 'viewFileTurnedIn'])->name('viewFileTurnedIn');
+
+Route::get('/challenges', [FileUploadController::class, 'challenges'])->name('challenges');
+
+Route::get('/challenge-upload', [FileUploadController::class, 'uploadChallenge'])->name('ChallengeUpload');
+
+Route::post('/storeChallenge', [FileUploadController::class, 'storeChallenge'])->name('storeChallenge');
+
+Route::get('/showHint/{id}', [FileUploadController::class, 'showHint'])->name('showHint');
+
+Route::post('/answer/{id}', [FileUploadController::class, 'answer'])->name('answer');
+
+Route::get('/detailChallenge/{id}', [FileUploadController::class, 'detailChallenge'])->name('detailChallenge');
+
+Route::delete('/destroyChallenge/{id}', [FileUploadController::class, 'destroyChallenge'])->name('destroyChallenge');
+
 //student handle
+Route::get('/userStu', [StudentController::class, 'index'])->name('listUserStu');
+
 Route::get('/assignmentStu', [StudentController::class, 'indexStu'])->name('assignmentStu');
 
 Route::get('/detailStu/{id}', [StudentController::class, 'detailStu'])->name('detailStu');
 
+Route::get('/view/{id}', [StudentController::class, 'viewFileStu'])->name('viewFileStu');
+
+Route::get('/downloadFile/{id}', [StudentController::class, 'downloadFile'])->name('downloadFileStu');
+
 Route::get('/editStu/{id}', [StudentController::class, 'editStu'])->name('editStu');
 
 Route::put('/editStu/{id}', [StudentController::class, 'updateStu'])->name('updateStu');
+
+Route::post('/turnIn/{id}', [StudentController::class, 'turnIn'])->name('turnIn');
+
+Route::get('/challengesStu', [StudentController::class, 'challengesStu'])->name('challengesStu');
+
+Route::get('/detailChallengeStu/{id}', [StudentController::class, 'detailChallengeStu'])->name('detailChallengeStu');
+
+Route::get('/showHintStu/{id}', [StudentController::class, 'showHintStu'])->name('showHintStu');
+
+Route::post('/answerStu/{id}', [StudentController::class, 'answerStu'])->name('answerStu');
