@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +46,8 @@ Route::post('/add', [UserController::class, 'save'])->name('save');
 Route::delete('/destroy/{id}', [UserController::class, 'destroy'])->name('destroy');
 
 Route::get('/edit/{id}', [UserController::class, 'edit'])->name('edit');
+
+Route::get('/detailUser/{id}', [UserController::class, 'detailUser'])->name('detailUser');
 
 Route::put('/edit/{id}', [UserController::class, 'update'])->name('update');
 
@@ -106,3 +109,19 @@ Route::get('/detailChallengeStu/{id}', [StudentController::class, 'detailChallen
 Route::get('/showHintStu/{id}', [StudentController::class, 'showHintStu'])->name('showHintStu');
 
 Route::post('/answerStu/{id}', [StudentController::class, 'answerStu'])->name('answerStu');
+
+//messages handle 
+Route::group(['middleware' => 'auth', 'prefix' => 'messages', 'as' => 'messages'], function () {
+
+    Route::get('/', [MessagesController::class, 'index']);
+
+    Route::get('create', [MessagesController::class, 'create'])->name('.create');
+
+    Route::post('/', [MessagesController::class, 'store'])->name('.store');
+
+    Route::get('{thread}', [MessagesController::class, 'show'])->name('.show');
+
+    Route::put('{thread}', [MessagesController::class, 'update'])->name('.update');
+
+    Route::delete('{thread}', [MessagesController::class, 'destroy'])->name('.destroy');
+});

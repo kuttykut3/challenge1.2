@@ -28,6 +28,13 @@
 
                    @endif
                    
+                   <form action="{{ route('detailUser', ['id' => $user->id]) }} ", method="GET">
+                    @csrf
+                    <button>
+                        Detail
+                    </button>
+                </form>
+                   
                </td>
                
            </tr>    
@@ -35,6 +42,13 @@
        @endforeach
    </table>
    {{ $users->links() }}
+
+   <form action="{{ route('messages') }} ", method="GET">
+    @csrf
+        <button>
+            Messages
+        </button>
+    </form>
    
    <form action="{{ route('assignmentStu') }} ", method="GET">
        @csrf

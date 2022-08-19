@@ -32,6 +32,13 @@
                            Edit
                        </button>
                    </form>
+
+                   <form action="{{ route('detailUser', ['id' => $user->id]) }} ", method="GET">
+                    @csrf
+                    <button>
+                        Detail
+                    </button>
+                </form>
    
                    <form action="{{ route('destroy', ['id' => $user->id]) }} ", method="POST">
                        @csrf

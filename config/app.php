@@ -180,6 +180,7 @@ return [
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
+        Cmgmyr\Messenger\MessengerServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
         /*

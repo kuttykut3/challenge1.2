@@ -7,6 +7,13 @@
         </button>
     </form>
     
+    <form action="{{ route('messages') }} ", method="GET">
+        @csrf
+            <button>
+                Messages
+            </button>
+    </form>
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('List Assignments') }}

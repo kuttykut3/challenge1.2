@@ -6,6 +6,13 @@
         </button>
     </form>
 
+    <form action="{{ route('messages') }} ", method="GET">
+        @csrf
+            <button>
+                Messages
+            </button>
+    </form>
+
     <form action="{{ route('assignmentStu') }} ", method="GET">
         @csrf
         <button>

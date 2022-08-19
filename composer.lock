@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3585b8fe948b725287109af85566f7f4",
+    "content-hash": "9cddb4697356c21d63023d34335ecf50",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -115,6 +115,77 @@
                 }
             ],
             "time": "2022-08-10T22:54:19+00:00"
+        },
+        {
+            "name": "cmgmyr/messenger",
+            "version": "2.27.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cmgmyr/laravel-messenger.git",
+                "reference": "d19d3e379caf3385c7f7ad41d66cf79f06c94041"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cmgmyr/laravel-messenger/zipball/d19d3e379caf3385c7f7ad41d66cf79f06c94041",
+                "reference": "d19d3e379caf3385c7f7ad41d66cf79f06c94041",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "^5.5|^6.0|^7.0|^8.0|^9.0",
+                "illuminate/database": "^5.5|^6.0|^7.0|^8.0|^9.0",
+                "illuminate/support": "^5.5|^6.0|^7.0|^8.0|^9.0",
+                "php": "^7.2|^8.0"
+            },
+            "require-dev": {
+                "doctrine/dbal": "^3.1.2|^2.13.3",
+                "fakerphp/faker": "^1.16",
+                "friendsofphp/php-cs-fixer": "^3.2|^2.18",
+                "orchestra/testbench": "^3.0|^4.0|^5.0|^6.0|^7.0",
+                "phpunit/phpunit": "^8.0|^9.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Cmgmyr\\Messenger\\MessengerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Cmgmyr\\Messenger\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Gmyr",
+                    "email": "cmgmyr@gmail.com",
+                    "homepage": "https://github.com/cmgmyr",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Simple user messaging tool for Laravel",
+            "keywords": [
+                "Messenger",
+                "laravel",
+                "messaging",
+                "user messaging"
+            ],
+            "support": {
+                "issues": "https://github.com/cmgmyr/laravel-messenger/issues",
+                "source": "https://github.com/cmgmyr/laravel-messenger/tree/2.27.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/cmgmyr",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-02-11T04:31:29+00:00"
         },
         {
             "name": "dasprid/enum",
@@ -1127,16 +1198,16 @@
         },
         {
             "name": "laravel/fortify",
-            "version": "v1.13.2",
+            "version": "v1.13.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/fortify.git",
-                "reference": "fc248d32b43cef160788e1b62fa3f4c227c26161"
+                "reference": "cde06120605b8bb038142b03425c67fc97d047d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/fortify/zipball/fc248d32b43cef160788e1b62fa3f4c227c26161",
-                "reference": "fc248d32b43cef160788e1b62fa3f4c227c26161",
+                "url": "https://api.github.com/repos/laravel/fortify/zipball/cde06120605b8bb038142b03425c67fc97d047d1",
+                "reference": "cde06120605b8bb038142b03425c67fc97d047d1",
                 "shasum": ""
             },
             "require": {
@@ -1186,20 +1257,20 @@
                 "issues": "https://github.com/laravel/fortify/issues",
                 "source": "https://github.com/laravel/fortify"
             },
-            "time": "2022-08-09T13:39:55+00:00"
+            "time": "2022-08-15T15:08:17+00:00"
         },
         {
             "name": "laravel/framework",
-            "version": "v9.24.0",
+            "version": "v9.25.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "053840f579cf01d353d81333802afced79b1c0af"
+                "reference": "e8af8c2212e3717757ea7f459a655a2e9e771109"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/053840f579cf01d353d81333802afced79b1c0af",
-                "reference": "053840f579cf01d353d81333802afced79b1c0af",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/e8af8c2212e3717757ea7f459a655a2e9e771109",
+                "reference": "e8af8c2212e3717757ea7f459a655a2e9e771109",
                 "shasum": ""
             },
             "require": {
@@ -1366,20 +1437,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-08-09T13:43:22+00:00"
+            "time": "2022-08-16T16:36:05+00:00"
         },
         {
             "name": "laravel/jetstream",
-            "version": "v2.11.0",
+            "version": "v2.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "80641e2b490bf442033be45b5e9b2d1e3635b3a9"
+                "reference": "448c3e009f597467b6e4b5245f85c598a2322b4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/80641e2b490bf442033be45b5e9b2d1e3635b3a9",
-                "reference": "80641e2b490bf442033be45b5e9b2d1e3635b3a9",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/448c3e009f597467b6e4b5245f85c598a2322b4e",
+                "reference": "448c3e009f597467b6e4b5245f85c598a2322b4e",
                 "shasum": ""
             },
             "require": {
@@ -1387,14 +1458,14 @@
                 "illuminate/console": "^9.21",
                 "illuminate/support": "^9.21",
                 "jenssegers/agent": "^2.6",
-                "laravel/fortify": "^1.12",
+                "laravel/fortify": "^1.13.3",
                 "php": "^8.0.2"
             },
             "conflict": {
                 "laravel/framework": "<9.19.0"
             },
             "require-dev": {
-                "inertiajs/inertia-laravel": "^0.5.2",
+                "inertiajs/inertia-laravel": "^0.6.3",
                 "laravel/sanctum": "^3.0",
                 "mockery/mockery": "^1.0",
                 "orchestra/testbench": "^7.0",
@@ -1436,7 +1507,7 @@
                 "issues": "https://github.com/laravel/jetstream/issues",
                 "source": "https://github.com/laravel/jetstream"
             },
-            "time": "2022-08-08T13:25:08+00:00"
+            "time": "2022-08-16T14:32:33+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -1820,16 +1891,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.2.0",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "ed0ecc7f9b5c2f4a9872185846974a808a3b052a"
+                "reference": "81aea9e5217084c7850cd36e1587ee4aad721c6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/ed0ecc7f9b5c2f4a9872185846974a808a3b052a",
-                "reference": "ed0ecc7f9b5c2f4a9872185846974a808a3b052a",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/81aea9e5217084c7850cd36e1587ee4aad721c6b",
+                "reference": "81aea9e5217084c7850cd36e1587ee4aad721c6b",
                 "shasum": ""
             },
             "require": {
@@ -1890,7 +1961,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.2.0"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.2.1"
             },
             "funding": [
                 {
@@ -1906,7 +1977,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-07-26T07:26:36+00:00"
+            "time": "2022-08-14T20:48:34+00:00"
         },
         {
             "name": "league/mime-type-detection",
@@ -6172,16 +6243,16 @@
         },
         {
             "name": "laravel/sail",
-            "version": "v1.15.2",
+            "version": "v1.15.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "8eb6d7116deda5b0e26153c1993f3e326d67768c"
+                "reference": "853dea1fa866a52a93beccc4e5affdc49b98e7d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/8eb6d7116deda5b0e26153c1993f3e326d67768c",
-                "reference": "8eb6d7116deda5b0e26153c1993f3e326d67768c",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/853dea1fa866a52a93beccc4e5affdc49b98e7d5",
+                "reference": "853dea1fa866a52a93beccc4e5affdc49b98e7d5",
                 "shasum": ""
             },
             "require": {
@@ -6228,7 +6299,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2022-08-08T20:02:04+00:00"
+            "time": "2022-08-17T13:17:15+00:00"
         },
         {
             "name": "mockery/mockery",

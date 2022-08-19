@@ -32,7 +32,11 @@
                 <td><a href="{{ route('viewFileTurnedIn', ['id' => $file->id]) }}", method="GET">{{ $file->name }}</a></td>
             
                 <td> 
-                   {{$file->owner_id}} 
+                @foreach ($student as $stu)
+                   @if($stu->id == $file->owner_id)
+                        {{$stu->name}}
+                    @endif
+                @endforeach
                 </td>
                
             </tr>    

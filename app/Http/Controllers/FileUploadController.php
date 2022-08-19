@@ -34,8 +34,10 @@ class FileUploadController extends Controller
         $detailFile = File::find($id);
 
         $files = StuFile::paginate(10);
+
+        $student = User::all();
          
-        return view('file-detail',compact('detailFile'), ['files'=> $files]); 
+        return view('file-detail',compact('detailFile'), ['files'=> $files,'student'=> $student]); 
       }
 
     public function viewFile($id) {
