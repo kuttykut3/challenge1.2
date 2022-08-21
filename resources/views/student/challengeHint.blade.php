@@ -1,4 +1,4 @@
-<x-app-layout>
+{{-- <x-app-layout> --}}
     <div>
         <p>
             {{$hintChallenge->hint}}
@@ -13,4 +13,4 @@
             </x-jet-button>
         </div>
     </form>
-</x-app-layout>
+{{-- </x-app-layout> --}}

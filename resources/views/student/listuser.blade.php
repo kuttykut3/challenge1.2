@@ -1,4 +1,10 @@
-<x-app-layout>
+{{-- <x-app-layout> --}}
+    <form action="{{ route('redirect') }} ", method="GET">
+        @csrf
+        <button>
+            Back to Home
+        </button>
+    </form>
    
     <table border="1" width="100%">
        <tr>
@@ -64,5 +70,5 @@
     </button>
     </form>
    
-   </x-app-layout>
+   {{-- </x-app-layout> --}}
    

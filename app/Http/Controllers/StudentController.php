@@ -15,13 +15,13 @@ class StudentController extends Controller
 
     public function index()
     {
-      $users = User::paginate(10);
+      $users = User::simplePaginate(10);
       return view('student.listuser', ['users'=> $users]);
     }
 
      public function indexStu()
     {
-        $files = File::paginate(10);
+        $files = File::simplePaginate(10);
           
         return view('student.assignment', ['files'=> $files]);
     }
@@ -29,8 +29,10 @@ class StudentController extends Controller
 
     public function detailStu($id) {
         $detailFile = File::find($id);
+
+        $files = StuFile::simplePaginate(1000)->where('owner_id','=',Auth::id());
  
-        return view('student.assignmentDetail',compact('detailFile')); 
+        return view('student.assignmentDetail',compact('detailFile'), ['files'=> $files]); 
       }
 
       public function viewFileStu($id) {

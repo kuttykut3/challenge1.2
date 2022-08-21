@@ -18,7 +18,7 @@
                         <div class="col-md-6">
                             <!-- Subject Form Input -->
                             <div>
-                                Subject:
+                                Message Subject:
                                 <label for="subject" :value="__('Subject')" >
                                 <input id="subject" class="block w-full mt-1" type="text" name="subject"
                                     :value="old('subject')" >
@@ -58,54 +58,14 @@
     </div>
 
     <div>
-        <h1> Messages sent:
-        </h1>
-
-    <table border="1" width="100%">
-        <tr>
-            <th>Time</th>
-            <th>Content</th>
-            <th>#</th>
-        </tr>
-        @foreach ($messages as $message)
-            <tr>
-                <td>{{ $message->created_at }}</td>
-                <td>{{ $message->body }}</td>
-                <td></td>
-                
-            </tr>    
-            
-        @endforeach
-    </table>
-    </div>
+        <form action="{{ route('messages') }} ", method="GET">
+            @csrf
+                <button>
+                    View Messages Sent
+                </button>
+        </form>
 
 </x-app-layout>
 
-    {{-- <div class="py-12">
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <div class="col-md-6">
-                        <div class="space-y-4">
-                            @foreach ($threads->messages as $message)
-                                <div class="px-4 py-2 leading-relaxed border rounded-lg sm:px-6 sm:py-4">
-                                    <strong>{{ $message->user->name }}</strong>
-                                    <span class="text-xs text-gray-400">{{ $message->created_at->diffForHumans() }}
-                                    </span>
-                                    <p class="text-sm">
-                                        {{ $message->body }}
-                                    </p>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-  
-    {{-- <h1>Message sent to this user:</h1>
-    @each('messenger.partials.thread', $threads, 'thread')  --}}
-             {{-- @each('messenger.partials.thread', $threads, 'thread',
-            'messenger.partials.no-threads'); --}}
+   
 

@@ -14,7 +14,7 @@ class FileUploadController extends Controller
 {
      public function index()
     {
-        $files = File::paginate(10);
+        $files = File::simplePaginate(10);
           
         return view('file-index', ['files'=> $files]);
     }
@@ -33,7 +33,7 @@ class FileUploadController extends Controller
     public function detail($id) {
         $detailFile = File::find($id);
 
-        $files = StuFile::paginate(10);
+        $files = StuFile::simplePaginate(10);
 
         $student = User::all();
          

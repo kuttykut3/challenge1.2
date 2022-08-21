@@ -25,6 +25,7 @@ class HomeController extends Controller
             // $users = User::all();
             // $users = User::paginate(10);
             return view('admin.home');
+           
         }
         else
         {

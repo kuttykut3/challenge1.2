@@ -1,4 +1,4 @@
-<x-app-layout>
+{{-- <x-app-layout> --}}
     <x-slot name="header">
         <h1 class="font-bold text-xl text-gray-900 leading-tight">
             {{$detailChallenge->challengeName}}
@@ -42,4 +42,4 @@
             Back to Challenges
         </button>
     </form>
-</x-app-layout>
+{{-- </x-app-layout> --}}

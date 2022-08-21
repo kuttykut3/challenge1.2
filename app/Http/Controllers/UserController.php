@@ -15,7 +15,7 @@ class UserController extends Controller
 {
     public function index()
    {
-        $users = User::paginate(10);
+        $users = User::simplePaginate(10);
         return view('admin.listuser', ['users'=> $users]);
    }
 
@@ -53,29 +53,8 @@ class UserController extends Controller
 
      public function detailUser($id) {
        $detailuser = User::find($id);
-
-      // $thread_id = DB::select('select thread_id from participants 
-      // where thread_id in
-      //   (select thread_id from messages
-      //   where user_id = $id) and user_id = Auth::id() ');
-       $thread_id = Participant::paginate(1000)
-      ->where('user_id', $id);
-      // dd($thread_id);
-
-        // $messages = Message::query()
-        //         ->where('user_id', Auth::id())
-        //         ->where('thread_id', $thread_id);
-        
-        
-      $messages = Message::paginate(1000)->where('user_id','=', Auth::id());
-      // ->where('thread_id','=', $thread_id);
-  
-        // $messages = Message::query()
-        // ->where('thread_id', $thread_id)
-        // ->where('user_id', $id);
-
-    
-       return view('users.detail',compact('detailuser'),['messages'=> $messages]); 
+       
+       return view('users.detail',compact('detailuser')); 
      }
 
      public function update(Request $request, $id)

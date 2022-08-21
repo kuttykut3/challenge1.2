@@ -1,4 +1,12 @@
-<x-app-layout>
+{{-- <x-app-layout> --}}
+
+    <form action="{{ route('redirect') }} ", method="GET">
+        @csrf
+        <button>
+            Back to Home
+        </button>
+    </form>
+
     <form action="{{ route('listUserStu') }} ", method="GET">
         @csrf
         <button>
@@ -50,4 +58,4 @@
    </table>
    {{ $challenges->links() }}
 
-   </x-app-layout>
+   {{-- </x-app-layout> --}}
