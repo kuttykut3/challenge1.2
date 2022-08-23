@@ -44,7 +44,7 @@ class StudentController extends Controller
      public function downloadFile(Request $request, $id) {
       $downloadFile = File::find($id);
      
-      return response()->download('F:/XamPP/htdocs/bai1.2/storage/app/'.$downloadFile->path);
+      return response()->download('F:/XamPP/htdocs/bai1.2/public/storage/'.$downloadFile->path);
    }
 
      public function editStu($id) {
@@ -118,9 +118,10 @@ class StudentController extends Controller
     {
         $challenge = Challenge::find($id);
 
-        if($challenge->name == $request->get('answer').'.txt')
+        if(Storage::disk('local')->exists($challenge->id.'.'.$request->get('answer')).'.txt')
         {
-            return view('student.correctAnswer', ['challenge'=> $challenge]);
+            $filename = $challenge->id.'.'.$request->get('answer').'.txt';
+            return view('student.correctAnswer', ['challenge'=> $challenge, 'filename' => $filename]);
         }
         else
         {

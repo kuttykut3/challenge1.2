@@ -8,6 +8,7 @@
 <h1>
     Sorry, your answer is incorrect, view hint and try again!
 </h1>
+    {{$ans}}
 </body>
 <form action="{{ route('detailChallenge', ['id' => $challenge->id]) }} ", method="GET">
     @csrf

@@ -5,10 +5,10 @@
     </head>
 
 <body>
-    {{ $challenge->name }} <br>
+    {{$filename}} <br>
 
    
-    <iframe height="650" width="1400" src="http://localhost/bai1.2/storage/app/{{$challenge->path}}"> </iframe>
+    <iframe height="650" width="1400" src="http://localhost/bai1.2/public/storage/{{$filename}}"> </iframe>
 </body>
 
 </html>

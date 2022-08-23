@@ -7,7 +7,7 @@
 <body>
     {{ $viewFile->name }} <br>
 
-    <iframe height="650" width="1400" src="http://localhost/bai1.2/storage/app/{{$viewFile->path}}"> </iframe>
+    <iframe height="650" width="1400" src="http://localhost/bai1.2/public/storage/{{$viewFile->path}}"> </iframe>
 </body>
 
 </html>

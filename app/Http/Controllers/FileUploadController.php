@@ -119,18 +119,16 @@ class FileUploadController extends Controller
     
         $name = $request->file('file')->getClientOriginalName();
  
-        $path = $request->file('file')->store('public');
- 
         $save = new Challenge();
  
-        $save->name = $name;
-        $save->path = $path;
         $save->hint = $request->get('hint');
         $save->challengeName = $request->get('challengeName');
         $save->save();
+
+        $newfile = $request->file('file')->storeAs('', $save->id.'.'.$name);
  
         return redirect('/challenges');
- 
+        
     }
 
     public function destroyChallenge(Challenge $id) {
@@ -158,13 +156,15 @@ class FileUploadController extends Controller
     {
         $challenge = Challenge::find($id);
 
-        if($challenge->name == $request->get('answer').'.txt')
+        if(Storage::disk('local')->exists($challenge->id.'.'.$request->get('answer')).'.txt')
         {
-            return view('file-correctAnswer', ['challenge'=> $challenge]);
+            $filename = $challenge->id.'.'.$request->get('answer').'.txt';
+            return view('file-correctAnswer', ['challenge'=> $challenge, 'filename' => $filename]);
         }
         else
         {
-            return view('file-incorrectAnswer', ['challenge'=> $challenge]);
+            $ans = substr(($challenge->path),7,-4);
+            return view('file-incorrectAnswer', ['challenge'=> $challenge, 'ans' => $ans]);
         }
  
     }
