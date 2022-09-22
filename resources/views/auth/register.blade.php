@@ -39,7 +39,7 @@
                 <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
-            <div class="form-check">
+            {{-- <div class="form-check">
                 <input type="radio" class="form-check-input" name="role" id="roleStudent" value="0">
                 <label for="roleStudent" class="form-check-label">
                     Student 
@@ -50,7 +50,7 @@
                 <label for="roleTeacher" class="form-check-label">
                     Teacher 
                 </label>
-            </div>
+            </div> --}}
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">
